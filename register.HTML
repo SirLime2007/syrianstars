@@ -5,57 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
+      body {
+        background-color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
       .account-form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         width: 300px;
-        padding: 10px;
-        border: 1px solid #968560;
+        padding: 20px;
+        border-radius: 5px;
         background-color: #fff;
-        margin: 20px auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .account-form h2 {
+        margin-bottom: 20px;
       }
 
       .account-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
         margin-bottom: 10px;
-        padding: 5px;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
       }
 
-      .account-form button {
-        margin-top: 10px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #eddab2;
-        color: #fff8e8;
-        cursor: pointer;
-      }
-
-      .account-form button:hover {
-        margin-top: 10px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #dec89b;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .account-form button:active {
-        margin-top: 10px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #9c917c;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .error-message {
+      .account-form .error-message {
         color: red;
         font-size: 12px;
         margin-top: 5px;
+      }
+
+      .account-form button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: #eddab2;
+        color: #fff8e8;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .account-form button:hover {
+        background-color: #dec89b;
+      }
+
+      .account-form button:active {
+        background-color: #9c917c;
+      }
+
+      .account-form p {
+        margin-top: 10px;
+        font-size: 12px;
+      }
+
+      .account-form p a {
+        color: #399cff;
+        text-decoration: none;
+      }
+
+      .account-form p a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -73,6 +97,7 @@
       <button type="submit" onclick="validateForm()">Submit</button>
       <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
+
     <script>
       function validateForm() {
         var nameInput = document.getElementById("name");
@@ -112,7 +137,7 @@
 
         sessionStorage.setItem("username", nameInput.value);
         sessionStorage.setItem("password", passwordInput.value);
-        window.location.href = "";
+        window.location.href = "login.html";
       }
     </script>
   </body>
