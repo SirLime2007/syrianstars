@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      .account-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #968560;
+        background-color: #fff;
+        margin: 20px auto;
+      }
+
+      .account-form input {
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+
+      .account-form button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #eddab2;
+        color: #fff8e8;
+        cursor: pointer;
+      }
+
+      .account-form button:hover {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #dec89b;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .account-form button:active {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #9c917c;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+	  .good-message {
+	  color: green;
+	  font-size: 12px;
+      margin-top: 5px;
+	  }
+
+    </style>
+  </head>
+  <body>
+    <div class="account-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <span class="error-message" id="username-error"></span>
+      <input type="password" id="password" placeholder="Password">
+      <span class="error-message" id="password-error"></span>
+      <button type="submit" onclick="validateLogin()">Login</button>
+	  <span class="good-message" id="done"></span>
+      <p>First time here? <a href="register.html">Register</a></p>
+    </div>
+    <script>
+      function validateLogin() {
+        var usernameInput = document.getElementById("username");
+        var passwordInput = document.getElementById("password");
+        var usernameError = document.getElementById("username-error");
+        var passwordError = document.getElementById("password-error");
+
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+
+        var savedUsername = sessionStorage.getItem("username");
+        var savedPassword = sessionStorage.getItem("password");
+
+        if (usernameInput.value.trim() === "") {
+          usernameError.textContent = "Please enter your username.";
+		  		done.textContent = "";
+
+          return;
+        }
+        if (passwordInput.value.trim() === "") {
+				done.textContent = "";
+          passwordError.textContent = "Please enter your password.";
+          return;
+        }
+        if (usernameInput.value !== savedUsername || passwordInput.value !== savedPassword) {
+		done.textContent = "";
+          passwordError.textContent = "Invalid username or password.";
+          return;
+        }
+		done.textContent = "Logged in successfuly";
+        return;
+      }
+    </script>
+  </body>
+</html>
