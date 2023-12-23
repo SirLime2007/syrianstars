@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <title>buy a nig-</title>
     <header> <font size="9"> <center> A Niggle For a Nickle! </center> </font> </header>
     <style>
@@ -11,7 +10,17 @@
             justify-content: space-around;
             padding: 20px;
         }
+		header {
+    padding: 20px;
+    background-color: #fff8e8;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
 
+header h1 {
+    margin: 0;
+    color: #614a06;
+}
         .person {
             display: flex;
             flex-direction: column;
@@ -23,11 +32,23 @@
             border: 1px solid  #eddab2;
             border-radius: 5px;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .person:hover {
+            transform: translateY(-10px);
         }
 
         .person img {
             width: 100%;
             height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .person:hover img {
+            transform: scale(1.2);
         }
 
         .price {
@@ -36,45 +57,40 @@
         }
 
         .button {
-width: 100%;
+            width: 100%;
             background-color: #fff8e8;
             border: 1px solid  #eddab2;
             border-radius: 5px;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-			cursor: pointer;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-		.button:hover {
-width: 100%;
+
+        .button:hover {
             background-color: #eddab2;
-            border: 1px solid #dec899;
-            border-radius: 5px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-			cursor: pointer;
         }
-		.button:active {
-width: 100%;
+
+        .button:active {
             background-color: #d6d1c3;
             border: 1px solid #eddab2;
             border-radius: 5px;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-			cursor: pointer;
         }
-		 .button.bought {
+
+        .button.bought {
             background-color: gray;
-			border: 1px solid black;
+            border: 1px solid black;
             cursor: not-allowed;
         }
 
-	
-
-			.table-container {
+        .table-container {
             margin: 20px;
             padding: 10px;
             border: 1px solid #eddab2;
             text-align: center;
             background-color: #fff8e8;
+            overflow: auto;
         }
-
 
         table {
             width: 100%;
@@ -86,49 +102,79 @@ width: 100%;
             color: #614a06;
         }
 
-        table td, table th {
+        table td,
+        table th {
             padding: 10px;
             border: 1px solid #eddab2;
-			text-align: center;
+            text-align: center;
         }
 
-			table td:hover {
+        table td:hover {
             padding: 10px;
             border: 1px solid #eddab2;
-			background-color: #fcf3de;
-			text-align: center;
+            background-color: #fcf3de;
+            text-align: center;
+        }
+        
+        table tbody tr {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .footer {
+            margin: 10px;
+            padding: 2px;
+            border-top: 1px solid #eddab2;
+            text-align: center;
+            background-color: #fcf3de;
         }
 
     </style>
-			<script>
+    <script>
         function buyButtonClicked(button) {
             button.innerText = 'Bought';
             button.classList.add('bought');
             button.disabled = true;
         }
-    </script>'
-	<script>
+        
+        function scrollToTable() {
+            const tableContainer = document.querySelector('.table-container');
+            tableContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const buttons = document.querySelectorAll('.container .person .button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                scrollToTable();
+            });
+        });
+
         function buyButtonClickeda(button) {
             button.innerText = 'You are deemed not worthy';
             button.classList.add('bought');
             button.disabled = true;
         }
-    </script>'
-	<script>
+
         function buyButtonClickedb(button) {
             button.innerText = 'Hired';
             button.classList.add('bought');
             button.disabled = true;
         }
-    </script>'
+    </script>
 </head>
 <body>
     <div class="container">
-	<div class="person">
+        <div class="person">
             <img src="person0.jpg" alt="">
-            <h3> figga nigg- </h3>
+            <h3>figga nigg-</h3>
             <p class="price">0.9$</p>
-			<button class="button" onclick="buyButtonClicked(this)">Buy</button>        </div>
+            <button class="button" onclick="buyButtonClicked(this)">Buy</button>        
+        </div>
         <div class="person">
             <img src="person1.jpg" alt="">
             <h3>n. Steve</h3>
@@ -141,22 +187,22 @@ width: 100%;
             <h3>n. ben</h3>
             <p class="price">150$</p>
             <button class="button" onclick="buyButtonClicked(this)">Buy</button>
-		</div>
-		 <div class="person">
+        </div>
+        <div class="person">
             <img src="person3.jpg" alt="">
             <h3>niggette</h3>
             <p class="price">999.9$</p>
             <button class="button" onclick="buyButtonClicked(this)">Buy</button>
         </div>
-         <div class="person">
+        <div class="person">
             <img src="king.jpg" alt="">
             <h3>mr. alexander</h3>
             <p class="price">10000$</p>
             <button class="button" onclick="buyButtonClickedb(this)">Hire</button>
         </div>
-         <div class="person">
+        <div class="person">
             <img src="honey.jpg" alt="">
-            <h3>honey <3 </h3>
+            <h3>honey &lt;3</h3>
             <p class="price">your soul</p>
             <button class="button" onclick="buyButtonClickeda(this)">Get bought</button>
         </div>
@@ -167,14 +213,14 @@ width: 100%;
             <thead>
                 <tr>
                     <th>Name</th>
-                     <th>Price</th>
-                     <th>age</th>
-                      <th>hexcode</th>
-                    <th>specs</th>
+                    <th>Price</th>
+                    <th>Age</th>
+                    <th>Hexcode</th>
+                    <th>Specs</th>
                 </tr>
             </thead>
             <tbody>
-			<tr>
+                <tr>
                     <td>figga nigg-</td>
                     <td>0.9$</td>
                     <td>16</td>
@@ -186,7 +232,7 @@ width: 100%;
                     <td>20$</td>
                     <td>16</td>
                     <td>#594509</td>
-                    <td>tall, good for manaul jobs like farming, is cross-eyed</td>
+                    <td>tall, good for manual jobs like farming, is cross-eyed</td>
                 </tr>
                 <tr>
                     <td>n. ben</td>
@@ -195,19 +241,19 @@ width: 100%;
                     <td>#968560</td>
                     <td>smart, tall, can be used in factories, has only been used 2 times</td>
                 </tr>
-				 <tr>
+                <tr>
                     <td>ms. niggette</td>
                     <td>999.9$</td>
                     <td>19</td>
                     <td>#cfb682</td>
-                    <td>genius, an inventor, belongs in the kitchen, cant make indomie</td>
+                    <td>genius, an inventor, belongs in the kitchen, can't make indomie</td>
                 </tr>
                 <tr>
                     <td>mr. alexander</td>
                     <td>10000$</td>
                     <td>17</td>
                     <td>#eddab2</td>
-                    <td>a genius, a good webdev, athlatic, pretty eyes, recycleble, would make a good fancy butler</td>
+                    <td>a genius, a good web developer, athletic, pretty eyes, recyclable, would make a good fancy butler</td>
                 </tr>
                 <tr>
                     <td>honey</td>
@@ -217,12 +263,14 @@ width: 100%;
                     <td>adorable</td>
                 </tr>
             </tbody>
-
         </table>
-   
-</div>
-    <center> <iframe src="https://sirlime2007.github.io/syrianstars/register.HTML" height="400" width="400"></iframe> </center>
-   	
-	
+    </div>
+    
+    <center>
+        <iframe src="https://sirlime2007.github.io/syrianstars/register.HTML" height="450" width="400" Frameborder="0"></iframe>
+    </center>
+	<div class="footer">
+        <marquee loop-1><p>All rights reserved &copy;mohammed nabeel khaldoun mohammed nabeel hekmat ahmad altabaa 2023</p> </marquee>
+    </div>
 </body>
 </html>
